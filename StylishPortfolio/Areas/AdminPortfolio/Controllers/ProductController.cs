@@ -84,7 +84,9 @@ namespace StylishPortfolio.Areas.AdminPortfolio.Controllers
                     string imgname=ProcessUploadedFile(updateVM.ImageFile);
                     project.Image = imgname;
                 }
-               
+               await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
             }
             return View(updateVM);
         }
