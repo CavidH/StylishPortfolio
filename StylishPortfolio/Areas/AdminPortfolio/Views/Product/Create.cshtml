@@ -1,0 +1,25 @@
+﻿@model CreateVM
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4" mt-5>
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control">
+                    <span class="bg-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Summary"></label>
+                    <input asp-for="Summary" class="form-control">
+                    <span class="bg-danger" asp-validation-for="Summary"></span>
+                </div>   <div class="form-group">
+                    <label asp-for="ImageFile"></label>
+                    <input asp-for="ImageFile" class="form-control">
+                    <span class="bg-danger" asp-validation-for="ImageFile"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <main />
+</div>

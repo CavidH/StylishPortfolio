@@ -1,0 +1,54 @@
+﻿@model List<Project>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Projects</h1>
+
+            <div class=" mb-4">
+            </div>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <a class="btn btn-primary" asp-controller="Product" asp-action="Create" >Add</a>
+
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Summary</th>
+                                <th>Image</th>
+                                 
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var project in Model)
+                            {
+                                <tr>
+                                    <td>@project.Name</td>
+                                    <td>@project.Summary</td>
+                                    <td><img src="~/assets/img/@project.Image" width="150px" /></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
