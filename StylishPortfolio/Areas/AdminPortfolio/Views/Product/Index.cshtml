@@ -8,7 +8,7 @@
             </div>
             <div class="card mb-4">
                 <div class="card-header">
-                    <a class="btn btn-primary" asp-controller="Product" asp-action="Create" >Add</a>
+                    <a class="btn btn-primary" asp-controller="Product" asp-action="Create">Add</a>
 
                 </div>
                 <div class="card-body">
@@ -18,7 +18,8 @@
                                 <th>Name</th>
                                 <th>Summary</th>
                                 <th>Image</th>
-                                 
+                                <th>Setting</th>
+
                             </tr>
                         </thead>
 
@@ -30,6 +31,10 @@
                                     <td>@project.Name</td>
                                     <td>@project.Summary</td>
                                     <td><img src="~/assets/img/@project.Image" width="150px" /></td>
+                                    <td>
+                                        <a asp-action="Delete" asp-route-id="@project.Id" class="btn btn-danger">Delete</a>
+                                        <a asp-action="Update" asp-route-id="@project.Id" class="btn btn-primary">Update</a>
+                                    </td>
                                 </tr>
                             }
 
