@@ -1,7 +1,9 @@
+using Core.Entities;
 using Data.DAL;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,8 +28,10 @@ namespace StylishPortfolio
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             }
                 );
-              services.AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<Startup>());
-
+            services.AddFluentValidation(p => p.RegisterValidatorsFromAssemblyContaining<Startup>());
+            services.AddIdentity<AppUser, IdentityRole>()
+                 .AddEntityFrameworkStores<AppDbContext>()
+                    .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +52,7 @@ namespace StylishPortfolio
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

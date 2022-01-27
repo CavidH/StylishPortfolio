@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Data.DAL;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,11 +9,13 @@ using StylishPortfolio.Areas.AdminPortfolio.ViewModels;
 using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace StylishPortfolio.Areas.AdminPortfolio.Controllers
 {
     [Area("AdminPortfolio")]
+    [Authorize]
     public class ProductController : Controller
     {
         private AppDbContext _context { get; }
