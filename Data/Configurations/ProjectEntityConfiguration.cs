@@ -1,9 +1,6 @@
 ﻿using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Data.Configurations
 {
@@ -14,7 +11,7 @@ namespace Data.Configurations
             builder.Property(p => p.Name).IsRequired().HasMaxLength(255);
             builder.Property(p => p.Summary).IsRequired().HasMaxLength(255);
             builder.Property(p => p.Image).IsRequired();
-            builder.Property(p => p.IsDeleted).HasDefaultValueSql("true");
+            builder.Property(p => p.IsDeleted).HasDefaultValue(false);
         }
     }
 }
